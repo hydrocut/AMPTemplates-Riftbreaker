@@ -1,0 +1,9 @@
+[
+    {
+        "Protocol": "UDP",
+        "Port": 6321,
+        "Ref": "GamePort",
+        "Name": "Port du jeu",
+        "Description": "Seul port a ouvrir, en UDP. Il doit rester a 6321 : le serveur de The Riftbreaker n'a pas de reglage de port, et le jeu des joueurs se connecte toujours sur 6321 (une seule instance par adresse IP)."
+    }
+]

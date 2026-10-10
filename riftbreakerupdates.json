@@ -1,0 +1,41 @@
+[
+    {
+        "UpdateStageName": "Telechargement du serveur dedie (SteamCMD anonyme, app 4114030, version Windows)",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "SteamCMD",
+        "UpdateSourceData": "4114030",
+        "UpdateSourceArgs": "780310",
+        "ForceDownloadPlatform": "Windows",
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Modele des reglages (AMP_reglages.txt)",
+        "UpdateSourcePlatform": "All",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/hydrocut/AMPTemplates-Riftbreaker/main/scripts/AMP_reglages.txt",
+        "UpdateSourceArgs": "AMP_reglages.txt",
+        "UpdateSourceTarget": "{{$FullRootDir}}",
+        "UnzipUpdateSource": false,
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Script de lancement (lancer-riftbreaker.sh)",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "FetchURL",
+        "UpdateSourceData": "https://raw.githubusercontent.com/hydrocut/AMPTemplates-Riftbreaker/main/scripts/lancer-riftbreaker.sh",
+        "UpdateSourceArgs": "lancer-riftbreaker.sh",
+        "UpdateSourceTarget": "{{$FullRootDir}}",
+        "UnzipUpdateSource": false,
+        "OverwriteExistingFiles": true,
+        "SkipOnFailure": false
+    },
+    {
+        "UpdateStageName": "Prefixe Wine et dossier des sauvegardes",
+        "UpdateSourcePlatform": "Linux",
+        "UpdateSource": "Executable",
+        "UpdateSourceData": "/bin/bash",
+        "UpdateSourceArgs": "\"{{$FullRootDir}}lancer-riftbreaker.sh\" preparer",
+        "SkipOnFailure": false
+    }
+]

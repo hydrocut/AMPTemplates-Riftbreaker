@@ -1,0 +1,177 @@
+[
+    {
+        "DisplayName": "Nom du serveur",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Nom de la partie, vu par les joueurs une fois connectés et enregistré dans les sauvegardes. Accents, tiret long, apostrophe, // et ; passent tels quels ; un guillemet droit \" est remplacé par ' au démarrage (il fermerait la valeur dans le fichier du jeu). Le serveur n'apparaît dans aucune liste : les joueurs entrent l'adresse IP.",
+        "Keywords": "nom,serveur,name,server_name,accueil",
+        "FieldName": "NomServeur",
+        "InputType": "text",
+        "ParamFieldName": "NomServeur",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "Serveur francophone hébergé gratuitement par TeamKit.fr — Discord : discord.gg/EuAjGMYPHY",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Mot de passe des joueurs",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "Demandé aux joueurs pour entrer. Vide = pas de mot de passe. Évite le guillemet droit \" (remplacé par ').",
+        "Keywords": "mot de passe,password,server_password,acces",
+        "FieldName": "MotDePasse",
+        "InputType": "password",
+        "ParamFieldName": "MotDePasse",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Joueurs maximum",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Serveur:dns:1",
+        "Description": "De 1 à 4. Le jeu est prévu pour 4 joueurs en coopération au plus : au-delà, EXOR prévient que les performances s'effondrent, le template ne le permet donc pas.",
+        "Keywords": "joueurs,max,players,server_max_players_count,places",
+        "FieldName": "JoueursMax",
+        "InputType": "number",
+        "MinValue": "1",
+        "MaxValue": "4",
+        "ParamFieldName": "JoueursMax",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "4",
+        "Suffix": "joueurs",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Mode de jeu",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Campagne ouverte (on choisit le biome de départ), campagne histoire (commence toujours dans la zone tropicale, le biome est ignoré) ou survie (une carte, des vagues d'ennemis). Changer de mode commence une autre partie. Le jeu ne garde que quelques sauvegardes automatiques par nom de serveur, tous modes confondus : après quelques démarrages dans un autre mode, l'ancienne partie est effacée. Un mode par instance.",
+        "Keywords": "mode,campagne,campaign,survie,survival,histoire,story,open",
+        "FieldName": "ModeJeu",
+        "InputType": "enum",
+        "ParamFieldName": "ModeJeu",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "open",
+        "EnumValues": {
+            "open": "Campagne ouverte",
+            "story": "Campagne histoire",
+            "survival": "Survie"
+        }
+    },
+    {
+        "DisplayName": "Biome",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Carte de départ en campagne ouverte, carte de la partie en survie ; ignoré en campagne histoire. Magma et « marais et lacs » n'existent qu'en survie : en campagne ouverte, le serveur refuse de démarrer et le dit. Lu seulement pour une nouvelle partie.",
+        "Keywords": "biome,carte,map,mission,desert,jungle",
+        "FieldName": "Biome",
+        "InputType": "enum",
+        "ParamFieldName": "Biome",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "desert",
+        "EnumValues": {
+            "desert": "Désert (desert)",
+            "jungle": "Jungle (jungle)",
+            "acid": "Acide (acid)",
+            "ice": "Glace (ice)",
+            "metallic": "Métallique (metallic)",
+            "caverns": "Cavernes (caverns)",
+            "swamp": "Marais (swamp)",
+            "magma": "Magma (magma) — survie seulement",
+            "swamp_lakes": "Marais et lacs (swamp_lakes) — survie seulement"
+        }
+    },
+    {
+        "DisplayName": "Difficulté",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Traduite pour chaque mode dans le nom qu'attend le jeu (par exemple coop_campaign_normal en campagne histoire, coop_normal en survie). Lu seulement pour une nouvelle partie : une partie reprise garde sa difficulté.",
+        "Keywords": "difficulte,difficulty,niveau,brutal,facile",
+        "FieldName": "Difficulte",
+        "InputType": "enum",
+        "ParamFieldName": "Difficulte",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "normal",
+        "EnumValues": {
+            "easy": "Facile",
+            "normal": "Normale",
+            "hard": "Difficile",
+            "brutal": "Brutale"
+        }
+    },
+    {
+        "DisplayName": "Au démarrage",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Reprendre (conseillé) : le serveur recharge la sauvegarde la plus récente du même mode (et du même biome en survie), sinon il commence une nouvelle partie. Nouvelle partie : une partie neuve à CHAQUE démarrage, à n'utiliser que pour repartir de zéro, puis remettre sur Reprendre. Sauvegarde nommée : charge le nom donné ci-dessous.",
+        "Keywords": "demarrage,reprendre,sauvegarde,nouvelle,save,mission_save",
+        "FieldName": "AuDemarrage",
+        "InputType": "enum",
+        "ParamFieldName": "AuDemarrage",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "reprendre",
+        "EnumValues": {
+            "reprendre": "Reprendre la dernière sauvegarde (nouvelle partie s'il n'y en a pas)",
+            "nouvelle": "Nouvelle partie (à chaque démarrage)",
+            "sauvegarde": "Charger la sauvegarde nommée ci-dessous"
+        }
+    },
+    {
+        "DisplayName": "Nom de la sauvegarde à charger",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Seulement si « Au démarrage » = sauvegarde nommée. Le nom exact affiché par le jeu, par exemple Autosave: 2026.10.10 - 17:36. La console d'AMP affiche le nom de la sauvegarde reprise à chaque démarrage. Si le nom n'existe pas dans donnees/campaignV2, le serveur refuse de démarrer et le dit.",
+        "Keywords": "sauvegarde,save,nom,mission_save,charger",
+        "FieldName": "NomSauvegarde",
+        "InputType": "text",
+        "ParamFieldName": "NomSauvegarde",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Pause quand le serveur est vide",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Réglages de la partie:tune:3",
+        "Description": "Coché (conseillé) : la partie s'arrête quand plus personne n'est connecté, la base ne se fait pas détruire pendant l'absence de tous les joueurs, et le serveur ne consomme presque plus de processeur.",
+        "Keywords": "pause,vide,empty,server_pause_game_when_empty",
+        "FieldName": "PauseVide",
+        "InputType": "checkbox",
+        "ParamFieldName": "PauseVide",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1",
+        "EnumValues": {
+            "False": "0",
+            "True": "1"
+        }
+    },
+    {
+        "DisplayName": "Sauvegarde automatique toutes les",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Réglages de la partie:tune:3",
+        "Description": "Variable autosave_timer du jeu (10 minutes dans le jeu, 5 ici). Attention : en essai, aucune sauvegarde périodique n'a été vue sur le serveur dédié ; le jeu sauvegarde à chaque chargement de carte, donc à chaque démarrage. Le serveur n'a pas d'arrêt propre : un arrêt ou un redémarrage d'AMP peut perdre la session en cours. Ne redémarre que quand personne ne joue.",
+        "Keywords": "sauvegarde,autosave,autosave_timer,minutes",
+        "FieldName": "SauvegardeAuto",
+        "InputType": "number",
+        "MinValue": "1",
+        "MaxValue": "60",
+        "ParamFieldName": "SauvegardeAuto",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "5",
+        "Suffix": "minutes",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Mot de passe RCON (administration)",
+        "Category": "The Riftbreaker:public",
+        "Subcategory": "Administration:admin_panel_settings:4",
+        "Description": "La console d'AMP ne peut pas envoyer de commande au jeu. Pour administrer, un joueur ouvre la console du jeu, tape server_rcon_password suivi de ce mot de passe, puis rcon suivi de la commande (exemple du guide d'EXOR : rcon cheat_god_mode 1). Vide = RCON désactivé. Évite le guillemet droit \".",
+        "Keywords": "rcon,admin,administration,mot de passe,server_rcon_password",
+        "FieldName": "MotDePasseRcon",
+        "InputType": "password",
+        "ParamFieldName": "MotDePasseRcon",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    }
+]

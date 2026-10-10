@@ -1,0 +1,14 @@
+# reglages-amp.txt - ECRIT PAR AMP a chaque demarrage, a partir de AMP_reglages.txt.
+# Ne le modifie pas a la main : change les reglages dans l'onglet Configuration d'AMP.
+# lancer-riftbreaker.sh le lit (une valeur par ligne, cle=valeur) et ecrit teamkit.cfg.
+nom={{NomServeur}}
+motdepasse={{MotDePasse}}
+joueurs={{JoueursMax}}
+mode={{ModeJeu}}
+biome={{Biome}}
+difficulte={{Difficulte}}
+demarrage={{AuDemarrage}}
+sauvegarde={{NomSauvegarde}}
+pause_vide={{PauseVide}}
+autosave={{SauvegardeAuto}}
+rcon={{MotDePasseRcon}}

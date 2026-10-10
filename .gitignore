@@ -1,0 +1,13 @@
+# Ce depot ne contient que le template : le serveur (app Steam 4114030) est telecharge
+# par SteamCMD a l'Update, le prefixe Wine et les sauvegardes restent sur le serveur.
+4114030/
+.wine/
+donnees/
+perso.cfg
+teamkit.cfg
+reglages-amp.txt
+exor_logs*.txt
+__pycache__/
+
+# Notes internes de TeamKit (essais, etapes), pas dans le depot public
+FAISABILITE.md
