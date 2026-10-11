@@ -169,7 +169,8 @@ schedule frequent restarts. The engine has a `save_game` console command (string
 - The AMP console **cannot send commands** to the game (`HasWriteableConsole=False`).
   Admin is RCON from a player's game: open the console, type `server_rcon_password <password>`,
   then `rcon <command>` (EXOR's example: `rcon cheat_god_mode 1`).
-- **No player list in AMP** (`App.MaxUsers=0`). The game logs arrivals
+- **No player list in AMP** (`Console.UserJoinRegex` empty; `App.MaxUsers=4`, the default of
+  *Joueurs maximum*, is only the capacity shown). The game logs arrivals
   (`ServerGameplayState: Player '0':'Name':':{GUID}'!`, the script adds
   `TeamKit : Name a rejoint la partie.`) but **nothing when a player leaves**: after a client was
   killed, the only line 25 s later was `GameplayState::PauseGame` (server empty). The same pause line

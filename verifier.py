@@ -110,7 +110,7 @@ ATTENDU_KVP = {
     'App.ExitMethod': 'SIGTERM',                # le lanceur coupe Wine (pas de commande d'arrêt)
     'App.HasWriteableConsole': 'False',         # le jeu ne lit pas son entrée standard (essai)
     'App.HasReadableConsole': 'True',
-    'App.MaxUsers': '0',                        # aucune ligne de départ de joueur dans le journal
+    'App.MaxUsers': '4',                        # = défaut de JoueursMax ; liste vide (UserJoinRegex vide), aucune ligne de départ
     'App.BaseDirectory': './riftbreaker/4114030/',
     'App.RootDir': './riftbreaker/',
 }
@@ -198,6 +198,8 @@ if motif('NIVEAU') != {'easy', 'normal', 'hard', 'brutal'}:
     soucis.append('difficultés du lanceur ≠ guide d’EXOR (easy, normal, hard, brutal)')
 if par_nom['PauseVide']['EnumValues'] != {'False': '0', 'True': '1'} or par_nom['PauseVide']['DefaultValue'] != '1':
     soucis.append('PauseVide : la case doit donner 0/1, cochée par défaut')
+if cles.get('App.MaxUsers') != par_nom['JoueursMax']['DefaultValue']:
+    soucis.append('App.MaxUsers doit valoir le défaut de JoueursMax (%s) : capacité affichée par AMP et le site' % par_nom['JoueursMax']['DefaultValue'])
 for champ, bornes in (('JoueursMax', ('1', '4')), ('SauvegardeAuto', ('1', '60'))):
     c = par_nom[champ]
     if (c['MinValue'], c['MaxValue']) != bornes:
